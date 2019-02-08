@@ -3,24 +3,28 @@
 
 const rls = require('readline-sync');
 const fs = require('fs');
+var logic = require('./Logic.js');
 main();
-Logic l 
 function main() {
   console.log("Nodeagachi");
+  console.log("***********");
   console.log("1. New game");
   console.log("2. Continue Game");
   console.log("3. Settings");
   console.log("4. Exit");
   var opt = rls.question("");
-  switch(opt){
+  switch(parseInt(opt)){
   case 1:
-	
+     logic.srat();	
 	break;
   case 2:
+     logic.cont();
 	break;
   case 3:
+     logic.cSettings();
 	break;
-  case 4:
+  case 4: 
+      process.exit(0);
 	break;
   }
 }
