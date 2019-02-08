@@ -19,6 +19,7 @@ module.exports.cSettings = function() {
      console.log('Settings');
 };
 function story() {
+  checkEmoteStatus();
   cls();
   runtime();
   console.log("Hunger: " + hunger);
@@ -42,9 +43,9 @@ function story() {
 
   }
 }
-function feed() {hunger--;}
-function sleep(){tired--;}
-function pet() {happ++}
+function feed() {hunger-=2; tired++;}
+function sleep(){tired--; hunger++;}
+function pet() {happ++; tired--;}
 
 function runtime(){emote(curEmote);}
 
@@ -77,7 +78,7 @@ function randAct() {
     case 0:
 	//Worst
 	happ-=2;
-	hunger+= 2;
+	hunger+=2;
 	break;
     case 1:
 	//Bad
@@ -92,7 +93,7 @@ function randAct() {
     case 3:
 	//Best
         hunger-=2;
-	happ-=2
+	happ+=2;
 	break;
   }
 }
@@ -102,4 +103,34 @@ function cls() {
        console.log('\r\n');
 	}
 }
-
+function checkEmoteStatus() {
+ if(happ >= 20) {
+   console.log("Nodeagachi has won!");
+   process.exit(0);
+ }
+ if(happ < 1) {
+    curEmote = 1;
+  }
+ if(hunger < 3) {
+    curEmote = 3;	
+  }
+ if(happ > 5) {
+    curEmote = 2;
+  }
+ if(happ < -2) {
+    curEmote = 5;
+    console.log("Your Nodeagachi Died!");
+  }
+  if(hunger > 10) {
+   curEmote = 4;
+   console.log("Your Nodeagachi Died!");
+   process.exit(0);
+ }
+ if(tired < 1) {
+    curEmote = 5;
+  }
+ if(tired > 10) {
+     curEmtoe = 3;
+     console.log("Your Nodeagachi Died!");
+  }
+}
