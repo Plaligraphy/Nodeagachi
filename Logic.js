@@ -1,6 +1,7 @@
 const fs = require('fs');
 const rls = require('readline-sync');
-var curEmote, happ, hunger, tired;
+var ng = require('./Nodeagachi.js');
+module.exports = {curEmote: "", happ: "", hunger: "", tired: ""};
 module.exports.srat = function() {
    curEmote = 0; 
    emote(0);
@@ -106,7 +107,7 @@ function cls() {
 function checkEmoteStatus() {
  if(happ >= 20) {
    console.log("Nodeagachi has won!");
-   process.exit(0);
+   ng.intro();
  }
  if(happ < 1) {
     curEmote = 1;
@@ -120,17 +121,19 @@ function checkEmoteStatus() {
  if(happ < -2) {
     curEmote = 5;
     console.log("Your Nodeagachi Died!");
+    ng.intro();
   }
   if(hunger > 10) {
    curEmote = 4;
    console.log("Your Nodeagachi Died!");
-   process.exit(0);
+   ng.intro();
  }
  if(tired < 1) {
     curEmote = 5;
   }
  if(tired > 10) {
-     curEmtoe = 3;
+     curEmote = 3;
      console.log("Your Nodeagachi Died!");
+     ng.intro();
   }
 }

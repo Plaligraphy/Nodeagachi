@@ -4,8 +4,9 @@
 const rls = require('readline-sync');
 const fs = require('fs');
 var logic = require('./Logic.js');
-main();
-function main() {
+var s = require('./Save.js');
+intro();
+function intro() {
   console.log("Nodeagachi");
   console.log("***********");
   console.log("1. New game");
@@ -18,7 +19,7 @@ function main() {
      logic.srat();	
 	break;
   case 2:
-     logic.cont();
+     s.run();
 	break;
   case 3:
      logic.cSettings();
@@ -28,3 +29,5 @@ function main() {
 	break;
   }
 }
+module.exports = intro;
+
