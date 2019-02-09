@@ -11,15 +11,16 @@ var sHapp, sHunger, sTired, sCurEmote;
  * 4th digit = current emote
  */
 module.exports.run = function() {
-   load();
-   console.log(sCurEmote);
-   console.log(sHapp);
-   console.log(sHunger);
-   console.log(sTired);
+    load();
+    console.log(sCurEmote);
+    console.log(sHapp);
+    console.log(sHunger);
+    console.log(sTired);
 }
+
 function load() {
- sCurEmote = lg.curEmote;
- sHapp = lg.happ;
- sHunger = lg.hunger;
- sTired = lg.tired;
+    sCurEmote = lg.curEmote;
+    sHapp = lg.happ;
+    sHunger = lg.hunger;
+    sTired = lg.tired;
 }
