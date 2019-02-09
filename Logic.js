@@ -2,7 +2,7 @@ const fs = require('fs');
 const rls = require('readline-sync');
 
 module.exports.srat = function() {
-   curEmote = 0; 
+   curEmote = 0;
    emote(0);
    happ = 5;
    hunger = 5;
@@ -112,7 +112,7 @@ function checkEmoteStatus() {
     curEmote = 1;
   }
  if(hunger < 3) {
-    curEmote = 3;	
+    curEmote = 3;
   }
  if(happ > 5) {
     curEmote = 2;
@@ -139,14 +139,18 @@ function checkEmoteStatus() {
 function saveRL() {
   console.log('Save or exit');
   var opt4 = rls.question("");
-  if(opt4 == 'save'){
-    
-  }else if(opt4 == 'exit'){
-    process.exit(0);
-  }
-  var conts = "0x" + happ + hunger + tired + curEmote;
-  fs.writeFile('savegame.txt', String(conts), function(err){
-     if(err){throw err;}
-        console.log(conts);
-  });
+    if(String(opt4) == "save"){
+      console.log("ran");
+    var conts = "0x" + happ + hunger + tired + curEmote;
+      console.log(conts);
+        var parsed = String(conts);
+        fs.writeFile("savegame.txt", parsed, function(err) {
+        if(err){return console.log(err);}
+          console.log("saved");
+        });
+      }
+      else if(opt4 == 'exit'){
+        process.exit(0);
+      }
+
 }
