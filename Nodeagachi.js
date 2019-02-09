@@ -5,8 +5,12 @@ const rls = require('readline-sync');
 const fs = require('fs');
 var logic = require('./Logic.js');
 var s = require('./Save.js');
-intro();
-function intro() {
+iro();
+
+module.exports.intro = function() {
+   iro();
+}
+function iro() {
   console.log("Nodeagachi");
   console.log("***********");
   console.log("1. New game");
@@ -29,5 +33,5 @@ function intro() {
 	break;
   }
 }
-module.exports = intro;
+
 

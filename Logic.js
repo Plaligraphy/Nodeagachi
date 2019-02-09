@@ -1,7 +1,6 @@
 const fs = require('fs');
 const rls = require('readline-sync');
-var ng = require('./Nodeagachi.js');
-module.exports = {curEmote: "", happ: "", hunger: "", tired: ""};
+
 module.exports.srat = function() {
    curEmote = 0; 
    emote(0);
@@ -55,7 +54,7 @@ function emote(stat) {
     case 0: //Fine
 	console.log("owO");
 	break;
-    case 1: //Sad
+   case 1: //Sad
         console.log("owo");
 	break;
     case 2: //Happy
@@ -107,7 +106,7 @@ function cls() {
 function checkEmoteStatus() {
  if(happ >= 20) {
    console.log("Nodeagachi has won!");
-   ng.intro();
+   saveRL();
  }
  if(happ < 1) {
     curEmote = 1;
@@ -121,12 +120,12 @@ function checkEmoteStatus() {
  if(happ < -2) {
     curEmote = 5;
     console.log("Your Nodeagachi Died!");
-    ng.intro();
+    saveRL();
   }
   if(hunger > 10) {
    curEmote = 4;
    console.log("Your Nodeagachi Died!");
-   ng.intro();
+   saveRL();
  }
  if(tired < 1) {
     curEmote = 5;
@@ -134,6 +133,20 @@ function checkEmoteStatus() {
  if(tired > 10) {
      curEmote = 3;
      console.log("Your Nodeagachi Died!");
-     ng.intro();
+     saveRL();
   }
+}
+function saveRL() {
+  console.log('Save or exit');
+  var opt4 = rls.question("");
+  if(opt4 == 'save'){
+    
+  }else if(opt4 == 'exit'){
+    process.exit(0);
+  }
+  var conts = "0x" + happ + hunger + tired + curEmote;
+  fs.writeFile('savegame.txt', String(conts), function(err){
+     if(err){throw err;}
+        console.log(conts);
+  });
 }
