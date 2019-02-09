@@ -1,3 +1,6 @@
+//Main class of Nodeagachi
+//Created by Evan Carter
+
 const fs = require('fs');
 const rls = require('readline-sync');
 
@@ -152,5 +155,6 @@ function saveRL() {
       else if(opt4 == 'exit'){
         process.exit(0);
       }
-
 }
+//Current bug: Once save is selected then you have to type in anything to end the loop
+// Ex: Save then type "ex" or just press enter
