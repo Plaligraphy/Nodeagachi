@@ -24,8 +24,8 @@ module.exports.cSettings = function() {
 };
 
 function story() {
-    checkEmoteStatus();
     cls();
+    checkEmoteStatus();
     runtime();
     console.log("Hunger: " + hunger);
     console.log("Happiness: " + happ);
@@ -91,28 +91,22 @@ function emote(stat) {
 }
 
 function randAct() {
-    var rand = Math.floor(Math.random() * 4);
-    console.log(rand);
+    var rand = Math.floor(Math.random() * 3);
     switch (rand) {
         case 0:
             //Worst
-            happ -= 2;
-            hunger += 2;
+            happ--;
+            hunger++;
             break;
         case 1:
             //Bad
-            happ--;
+            happ++;
             hunger++;
             break;
         case 2:
             //Better
-            happ++;
+            happ+=2;
             hunger--;
-            break;
-        case 3:
-            //Best
-            hunger -= 2;
-            happ += 2;
             break;
     }
 }

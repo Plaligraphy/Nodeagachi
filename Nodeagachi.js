@@ -3,7 +3,6 @@
 const rls = require('readline-sync');
 const fs = require('fs');
 var logic = require('./Logic.js');
-var s = require('./Save.js');
 iro();
 
 module.exports.intro = function() {
