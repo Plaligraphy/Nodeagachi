@@ -30,5 +30,8 @@ function iro() {
         case 4:
             process.exit(0);
             break;
+	case 5:
+	    logic.cont();
+	    break;
     }
 }

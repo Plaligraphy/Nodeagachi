@@ -25,6 +25,7 @@ module.exports.cSettings = function() {
 
 function story() {
     cls();
+    recall();
     checkEmoteStatus();
     runtime();
     console.log("Hunger: " + hunger);
@@ -169,6 +170,12 @@ function saveRL() {
     } else if (opt4 == 'exit') {
         process.exit(0);
     }
+}
+function recall() {
+  fs.readFile("savegame.txt", function read(err, data) {
+     if(err){throw err;}
+     console.log(data);
+  });
 }
 //Current bug: Once save is selected then you have to type in anything to end the loop
 // Ex: Save then type "ex" or just press enter
